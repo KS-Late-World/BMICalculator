@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+    body{
+        display: flex;
+        justify-content: center;
+            }
+        .container{
+            text-align: center;
+            background-color: palevioletred;
+            display: flex;
+            width: 500px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+        input{
+            height:100px ;
+            width: 90%;
+            font-size: small;
+            color: cadetblue;
+        }
+        #button{
+            color: black;
+            background-color: rgb(175, 238, 238);
+            height: 50%;
+        }
+        .box{
+            margin: 10px;
+            background-color: cadetblue;
+            color: white;
+            width: 70%;
+         
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>BMI Calculator</h1>
+        <input id="cm" type="text" placeholder="Enter Your height in cm">
+       <input id="kg" type="text" placeholder="Enter Your Weight In Kg  ">
+     <button id="button">Calculate BMI</button>
+
+     <div class="box">
+        <h4>BMI value</h4> <span id="bmivalue"></span>
+    </div>
+    <div class="box">
+        <h4>Status</h4> <span id="status"></span>
+    </div>
+    </div>
+    <script>
+      var height=document.getElementById('cm')
+      var weight=document.getElementById('kg')
+      var button=document.getElementById('button')
+      var bmivalue=document.getElementById('bmivalue')
+        const status=document.getElementById("status")
+      button.onclick=()=>{
+          console.log(height.value)
+          console.log(weight.value)
+      
+      var result=parseFloat(weight.value)/(parseFloat(height.value)/100)**2
+      bmivalue.innerText=result;
+    //   status.innerText="Underweight"
+      if(result<18){
+     status.innerText="Underweight"
+      }
+      else if (result<25){
+          status.innerText="Healthy"
+      }
+      else if(result<30){
+          status.innerText="Overweight"
+      }
+      else{
+          status.innerText="Obesity"
+      }
+      }
+     
+    </script>
+</body>
+</html>
